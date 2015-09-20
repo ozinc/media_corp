@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    div.container
+            div.row
+                col-md-6
+                - each channel, i in channels
+                    div.table-container
+                      h3 #{channel.name}
+                      table.table
+                              thead
+                                tr
+                                  th User ID
+                                  th Email
+                                  th Connected
+                              - each subscription, i in channel.subscriptions
+                                  tbody
+                                      tr
+                                        - each user, i in subscription.user
+                                            td #{user._id}
+                                            td #{user.email}
+                                        - each channel, i in subscription.channel
+                                            td #{channel.connected}
