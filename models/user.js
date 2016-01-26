@@ -13,7 +13,7 @@ var UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  accesToken: { type: String, default: null }
+  accessToken: { type: String, default: null }
 });
 
 function destroy(req, res) {
@@ -35,8 +35,8 @@ function create(req, done) {
   newUser.email = req.email;
   newUser.password = createHash(req.password);
 
-  if (req.body.admin) {
-    newUser.role = 'admin';
+  if (req.body.userId) {
+    newUser.ozId = req.body.userId;
   }
 
   newUser.save(function(err) {

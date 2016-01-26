@@ -11,11 +11,6 @@ block content
                     | Fusce dapibus, tellus ac cursus commodo, tortor mauris
                     | condimentum nibh, ut fermentum massa justo sit amet risus.
                     | Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                  -var subscribed = channel.subscribed;
-                  form(action="/subscriptions/" + channel.id, method="post")
-                      if subscribed
-                            button.btn.btn-success(type="submit") Unsubscribe
-                      else
-                            button.btn.btn-default(type="submit") Subscribe
+
                   form(action="/connect", method="post")
                     button.btn.btn-default(type="submit") Connect to OZ
